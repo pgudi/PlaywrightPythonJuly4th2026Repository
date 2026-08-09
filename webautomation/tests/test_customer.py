@@ -1,0 +1,25 @@
+from playwright.sync_api import Page, expect
+
+def test_create_customer(page:Page):
+    page.goto("https://sgtestinginstituteapp.onrender.com/")
+    page.wait_for_timeout(3000)
+    page.locator("//input[@name='username']").fill("pgudi")
+    page.locator("//input[@name='password']").fill("pgudi")
+    page.locator("//button[normalize-space()='Sign In']").click()
+    page.wait_for_timeout(3000)
+    expect(page).to_have_url("https://sgtestinginstituteapp.onrender.com/home")
+    page.locator("//a[normalize-space()='Customers']").click()
+    expect(page.locator("//a[normalize-space()='Add Customer']")).to_be_visible()
+    page.locator("//a[normalize-space()='Add Customer']").click()
+    page.wait_for_timeout(3000)
+    page.locator("//input[@placeholder='Enter Customer Name']").fill("auto_services01")
+    page.locator("input[placeholder='Enter EmailId']").fill("auto01@sg.com")
+    page.locator("input[placeholder='Enter Location']").fill("California")
+    page.locator("input[placeholder='Enter Description']").fill("Testing Purpose")
+    page.locator("//button[normalize-space()='Save']").click()
+    page.wait_for_timeout(3000)
+    page.on("dialog", lambda dialog: dialog.accept())
+
+    page.locator("//td[text()='auto_services01']/following-sibling::td/following-sibling::td/following-sibling::td/following-sibling::td/button[2]").click()
+    page.wait_for_timeout(3000)
+    expect(page.locator("//td[text()='auto_services01']")).not_to_be_visible()

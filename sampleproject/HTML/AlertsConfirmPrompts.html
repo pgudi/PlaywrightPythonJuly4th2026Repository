@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showAlerts(){
+            alert("It is a Simple Alert!!")
+            document.getElementById("result").innerHTML="You have performed Click Operation on OK Button"
+        }
+
+        function showConfirm(){
+            let status=confirm("Do you want Delete User?")
+            if(status){
+                document.getElementById("result").innerHTML="You have performed Click Operation on OK Button in Confirm Window"
+            }else{
+                document.getElementById("result").innerHTML="You have performed Click Operation on Cancel Button in Confirm Window"
+            }
+        }
+
+        function showPrompt(){
+            let data=prompt("Enter the Studnet Location:")
+            if(data==""){
+               document.getElementById("result").innerHTML="You have performed Click Operation on OK Button without Entering any Value" 
+            }else if(data.length>0){
+                document.getElementById("result").innerHTML="You have performed Click Operation on OK Button by Entering Some Value" 
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h2 align="center">Welcome to Alerts, Confirm & Prompts</h2>
+
+    <input type="button" value="Execute Alert Window" name="alert" onclick="showAlerts()">
+    <br>
+    <br>
+    <br>
+    <input type="button" value="Execute Confirm Window" name="confirm" onclick="showConfirm()">
+    <br>
+    <br>
+    <br>
+    <input type="button" value="Execute Prompt Window" name="prompt" onclick="showPrompt()">
+    <hr>
+    <h3>Output :</h3>
+    <p id="result">Please click on any button To View Results</p>
+</body>
+</html>
