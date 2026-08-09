@@ -1,0 +1,29 @@
+.bgbody{
+    background-color: aqua;
+}
+
+#header{
+  color: coral;
+  text-align: center;
+}
+
+.pg1{
+    color: goldenrod;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#pg2{
+    color: blueviolet;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.pg3{
+    color: yellowgreen;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 600;
+}
